@@ -7,34 +7,34 @@ const TodoScreen = () => {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ item: text})
+    body: JSON.stringify({ item: text })
   };
 
+
   const handlePost = async () => {
-    
+
+    if (text == "" || text.length <= 2) {
+      Alert.alert("please enter at least 3 characters!")
+    } else {
+      
       const fetchData = await fetch(
-      'http://localhost:8000/create', requestOptions)
+        'http://localhost:8000/create', requestOptions)
 
       const data = await fetchData.json()
 
-      if (data){
+      if (data) {
         Alert.alert("task created!")
         setText("")
       }
-    
+    }
+
   }
-
-
-
-
-
-
 
 
 
   return (
     <SafeAreaView>
-      <NavBar/>
+      <NavBar />
       <View style={{ marginVertical: 60, marginHorizontal: 20 }}>
         <Text style={{ paddingVertical: 20, textAlign: "center" }}>TodoScreen</Text>
 
@@ -50,8 +50,19 @@ const TodoScreen = () => {
           value={text}
           onChangeText={(val) => setText(val)}
         />
-        <TouchableOpacity style={{ backgroundColor: "black", borderRadius: 6, paddingVertical: 10, paddingHorizontal: 10, margin: 10 }} onPress={()=> handlePost()}>
-          <Text style={{ color: "white", textAlign: "center", fontWeight: "bold", fontSize: 20 }}>Add Task</Text>
+        <TouchableOpacity style={{
+          backgroundColor: "black",
+          borderRadius: 6,
+          paddingVertical: 10,
+          paddingHorizontal: 10,
+          margin: 10
+        }} onPress={() => handlePost()}>
+          <Text style={{
+            color: "white",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: 20
+          }}>Add Task</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
