@@ -36,7 +36,7 @@ const TodoScreen = () => {
     <SafeAreaView>
       <NavBar />
       <View style={{ marginVertical: 60, marginHorizontal: 20 }}>
-        <Text style={{ paddingVertical: 20, textAlign: "center" }}>TodoScreen</Text>
+        <Text style={{ paddingVertical: 20, textAlign: "center" , fontWeight: "900"}}>Add Task</Text>
 
         <TextInput
           style={{

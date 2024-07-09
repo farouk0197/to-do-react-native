@@ -65,7 +65,7 @@ const TodoList = () => {
                             <Text style={{ color: "white", fontSize: 20, fontWeight: "800" , flex:1}} >
                                 {task.item}
                             </Text>
-                            <IconButton icon="pencil" iconColor='white'/>
+                            {/* <IconButton icon="pencil" iconColor='white'/> */}
                             <IconButton icon="trash-can" onPress={()=> handleRemoveItem(task._id)} iconColor='white' />
                         </View>
                     )
