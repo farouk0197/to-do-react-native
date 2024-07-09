@@ -3,7 +3,7 @@ const app = express()
 const port = 8000
 const mongoose = require('mongoose');
 const Item = require("./models/todoModel")
-
+require("dotenv").config()
 
 app.use(express.json())
 
@@ -72,7 +72,7 @@ app.delete('/del/:id', async(req, res) => {
 main().catch(err => console.log(err));
 
 async function main() {
-  const data = await mongoose.connect('mongodb+srv://root:Password321@cluster0.pc8azgb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+  const data = await mongoose.connect(process.env.MONGODB_CONECT_URI);
   if (data){
     console.log("db connected to Mongodb!")
     app.listen(port, () => {
