@@ -8,7 +8,7 @@ const TodoList = () => {
     const [dataList, setData] = useState([])
   
     const getTask = async () => {
-        const response = await fetch("http://localhost:8000/items");
+        const response = await fetch("https://to-do-react-native.onrender.com/items");
         const taskData = await response.json();
         setData(taskData)
         
@@ -19,7 +19,7 @@ const TodoList = () => {
 
     const handleRemoveItem = async (id)=> {
         try {
-            const response = await fetch(`http://localhost:8000/del/${id}`, {
+            const response = await fetch(`https://to-do-react-native.onrender.com/del/${id}`, {
               method: 'DELETE',
             });
             if (response.ok) {

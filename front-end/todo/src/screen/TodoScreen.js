@@ -18,7 +18,7 @@ const TodoScreen = () => {
     } else {
       
       const fetchData = await fetch(
-        'http://localhost:8000/create', requestOptions)
+        'https://to-do-react-native.onrender.com/create', requestOptions)
 
       const data = await fetchData.json()
 
